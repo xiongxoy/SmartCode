@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/zx/Documents/workspace/acm/beauty_of_programming/q-1.cpp
+iostream
+-
+string
+-
+fstream
+-
+string.h
+-
+

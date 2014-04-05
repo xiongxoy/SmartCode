@@ -1,0 +1,6 @@
+PROJECT("Beauty of Programming")
+
+CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+
+ADD_EXECUTABLE(q-1 q-1.cpp)
+

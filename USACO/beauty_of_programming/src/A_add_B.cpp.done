@@ -1,0 +1,86 @@
+//============================================================================
+// Name        : beauty_of_programming.cpp
+// Author      : ZHOU Xiong
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+
+/* @note 这次用了一上午，思路很简单，但是有很多脑残错误
+ * 还是编码的顺序问题，一个一个来，不要跳，跳了之后很多逻辑就混乱了
+ * 应该在草稿纸上画出数据的构成，不要空想，太难了
+ * 有点紧张感
+ */
+
+#include <iostream>
+using namespace std;
+
+typedef unsigned char digit;
+digit ans[120];
+digit op_a[120];
+digit op_b[120];
+
+int add(digit & r, const digit & a, const digit & b, int carry) {
+	int c=a-'0'+b-'0';
+	if ( c + carry >= 10) {
+		r = c-10 + '0' + carry;
+		return 1;
+	}
+	else {
+		r = c + '0' + carry;
+		return 0;
+	}
+}
+
+/**
+ *  op_a  --------------------
+ *  op_b  ----------
+ *  ans  _-------------------
+ */
+void add(digit * ans, const digit * op_a, const digit * op_b) {
+	int size_a=0, size_b=0;
+	for(; op_a[size_a] != 0; size_a++);
+	for(; op_b[size_b] != 0; size_b++);
+	int carry=0;
+	int size = (size_a > size_b ? size_a : size_b) + 1;
+	for(int i=1; ;i++) {
+		if( size-i == 0) {
+			ans[0] = carry + '0';
+			return;
+		}
+		else if( size_a - i < 0)
+			carry = add(ans[size-i], '0', op_b[size_b-i], carry);
+		else if( size_b - i < 0)
+			carry = add(ans[size-i], op_a[size_a-i], '0', carry);
+		else
+			carry = add(ans[size-i], op_a[size_a-i], op_b[size_b-i], carry);
+	}
+}
+
+void output_ans(const digit * ans) {
+	int size = 1;
+	for(; ans[size] != 0; size++);
+
+	if(ans[0] != '0') cout << ans[0];
+	for(int i=1; i<size; i++) {
+		cout << ans[i];
+	}
+	cout << endl;
+}
+int main() {
+	{// input routine
+		digit d;
+		int i=0;
+		while( (d = cin.get()) != ' ') {
+			op_a[i++] = d;
+		}
+		int j=0;
+		while( (d = cin.get()) != '\n') {
+			op_b[j++] = d;
+		}
+	}
+	add(ans, op_a, op_b);
+	output_ans(ans);
+	return 0;
+}
