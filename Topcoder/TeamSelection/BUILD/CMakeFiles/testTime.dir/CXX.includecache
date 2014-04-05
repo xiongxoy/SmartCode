@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/zx/Documents/algo/Topcoder/New/time.cc
+string
+-
+cassert
+-
+stdlib.h
+-
+iostream
+-
+vector
+-
+

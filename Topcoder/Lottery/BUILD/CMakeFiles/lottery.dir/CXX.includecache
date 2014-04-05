@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/zx/Documents/algo/Topcoder/Lottery/lottery.cpp
+string
+-
+vector
+-
+algorithm
+-
+cassert
+-
+cstdio
+-
+iostream
+-
+

@@ -1,0 +1,1 @@
+ADD_EXECUTABLE(test_ImageDithering ImageDithering.cc)

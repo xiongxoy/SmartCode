@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/zx/algo/Topcoder/BinaryCode/binary_code.cpp
+string
+-
+vector
+-
+fstream
+-
+assert.h
+-
+stdio.h
+-
+

@@ -1,0 +1,32 @@
+# 读取Template文件夹，替换#prj_name#为args
+task :new, [:prj_name] do |t, args|
+  #读取参数
+  name = args.prj_name
+  #读取文件
+  FileUtils.cp_r 'Template/.', name, :remove_destination => true
+  FileUtils.cd("#{name}") do
+    FileUtils.mv '#prj_name#.hpp', "#{name}.hpp"
+    files = `ls -p | grep -v "/"`.split
+    files.each do |e|
+      lines = []
+      File.foreach(e) { |line|
+        lines.push line.gsub( /#prj_name#/, "#{name}" )
+      }
+      File.open(e, "w") { |file|
+        file.print( lines.join() )
+      }
+    end
+  end
+end
+
+#task :name, [:first_name, :last_name] do |t, args|
+    #puts "First name is #{args.first_name}"
+      #puts "Last  name is #{args.last_name}"
+#end
+
+#.
+  #├── #prj_name#.hpp
+#├── BUILD
+#├── CMakeLists.txt
+#├── main.cc
+#└── problem.md
