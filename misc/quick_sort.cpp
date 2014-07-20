@@ -62,21 +62,35 @@ void test1() {
   for (int i = 0; i < 5; i++) {
     printf("%d, ", A[i]);
   }
+  printf("\n");
   return;
 }
 void test2()
 {
   int A[1] = {2};
-  quick_sort(A, 0, 1);
+  quick_sort(A, 0, 0);
   for (int i = 0; i < 1; i++) {
     printf("%d, ", A[i]);
   }
+  printf("\n");
   return;
 }
+void test3()
+{
+  int A[3] = {3, 2, 1};
+  quick_sort(A, 0, 2);
+  for (int i = 0; i < 3; i++) {
+    printf("%d, ", A[i]);
+  }
+  printf("\n");
+  return;
+}
+
 int main(int argc, const char *argv[])
 {
   test1();
   test2();
+  test3();
   return 0;
 }
 #endif

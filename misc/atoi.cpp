@@ -1,33 +1,28 @@
 #include <cstdio>
 
-//"+123"
-//"-122"
-//"asdf"
-//"3243e01"
-//"+ sdf "
-
 static bool eflag = false;
 static bool pflag = false;
 bool valid(char c) {
+  // 数字有效
   if ( c>='0' && c<='9' )
   {
     return true;
-  } else if ( (c == '+') || (c == '-') ) {
+  } else if ( (c == '+') || (c == '-') ) { // +，-只能出现一次
     if (pflag)
-      return false;
+      return false;  // 出现过
     else  {
       pflag = true;
       return true;
     }
-  } else if ( (c == 'E') || (c == 'e') ) {
+  } else if ( (c == 'E') || (c == 'e') ) { // e, E只能出现一次
     if (eflag)
-      return false;
+      return false;  // 出现过
     else {
       eflag = true;
       return true;
     }
   } else  {
-    return false;
+    return false;  // 其它情况
   }
 }
 int atoi (const char *a, int &val) {
